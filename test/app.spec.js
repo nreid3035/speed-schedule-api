@@ -59,6 +59,39 @@ describe('Speed Schedule Endpoints', () => {
 
     afterEach('cleanup', () => db.raw('TRUNCATE speed_schedule_users, speed_schedule_events, speed_schedule_scheduled_events'))
 
+    describe('Speed Schedule /events endpoints', () => {
+        describe('GET /api/events', () => {
+            context('given no events', () => {
+                it('should respond with 200 and an empty array')
+            })
+
+            context('given valid data', () => {
+                it('should respond with 200 and an array of the events for the logged in user', () => {
+
+                })
+            })
+        })
+
+        describe('POST /api/events', () => {
+            context('given an invalid request', () => {
+                it('should respond with 400 bad request and an error message', () => {
+
+                })
+            })
+
+            context('given an xss attack script', () => {
+                it('should respond with the article sanitized', () => {
+
+                })
+            })
+
+            context('given a valid request', () => {
+                it('should respond with 201 created and the new event', () => {
+
+                })
+            })
+        })
+    })
 
 })
 
