@@ -5,11 +5,12 @@ const EventsServiceObject = {
             .from('speed_schedule_events')
             .where('username', username)
     },
-    getEventById(knex, id) {
+    getEventById(knex, id, username) {
         return knex
             .select('*')
             .from('speed_schedule_events')
-            .where('id', id)
+            .where('username', username)
+            .where('event_id', id)
             .first()
     },
     postEvent(knex, newEvent) {
@@ -21,9 +22,10 @@ const EventsServiceObject = {
                 return rows[0]
             })
     },
-    deleteEventById(knex, id) {
+    deleteEventById(knex, id, username) {
         return knex('speed_schedule_events')
-            .where({ id })
+            .where('username', username)
+            .where('event_id', id)
             .delete()
     }
 }

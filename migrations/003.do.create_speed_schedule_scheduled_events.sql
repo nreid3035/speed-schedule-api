@@ -5,4 +5,4 @@ CREATE TABLE speed_schedule_scheduled_events (
     sched_date TEXT NOT NULL,
     start_time TEXT NOT NULL,
     end_time TEXT NOT NULL 
-)
+);

@@ -7,6 +7,8 @@ const { NODE_ENV, JWT_SECRET } = require('./config')
 const UsersServiceObject = require('./users/users-service')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const eventsRouter = require('./events/events-router')
+const scheduledEventsRouter = require('./scheduledEvents/scheduled-events-router')
 
 const app = express()
 const jsonParser = express.json()
@@ -18,6 +20,9 @@ const morganOption = (NODE_ENV === 'production')
 app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
+
+app.use('/api/events', eventsRouter)
+app.use('/api/scheduled-events', scheduledEventsRouter)
 
 app.post('/api/signup', jsonParser, (req, res, next) => {
     const { username, password, email, first_name, last_name } = req.body

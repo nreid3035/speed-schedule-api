@@ -15,7 +15,7 @@ const makeUsersArray = () => {
             id: 2,
             first_name: 'Hannah',
             last_name: 'Bozsik',
-            username: 'Hboz89',
+            username: 'HBoz89',
             email: 'hannahbozsik@gmail.com',
             password: hashedPassword,
         },
